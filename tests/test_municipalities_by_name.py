@@ -10,7 +10,8 @@ class TestMunicipalitiesByName(unittest.TestCase):
         cls.base_url = "https://local-gov-units.polandapi.com"
         cls.playwright = sync_playwright().start()
         cls.request = cls.playwright.request.new_context(
-            base_url=cls.base_url
+            base_url=cls.base_url,
+            ignore_https_errors=True
         )
 
     @classmethod
