@@ -13,6 +13,7 @@
 - Testy **data-driven**
 - Walidacja odpowiedzi API (m.in. status, struktura)
 - Generowanie **raportu HTML**
+  Raport zostanie zapisany w katalogu reports/
 - Projekt gotowy do uruchomienia w **CI**
 
 ---
