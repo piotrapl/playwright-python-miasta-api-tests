@@ -1,6 +1,5 @@
 import unittest
 from playwright.sync_api import sync_playwright
-from tests.test_data import POSITIVE_TEST_DATA, NEGATIVE_TEST_DATA
 
 
 class TestMunicipalitiesByName(unittest.TestCase):
@@ -11,7 +10,7 @@ class TestMunicipalitiesByName(unittest.TestCase):
         cls.playwright = sync_playwright().start()
         cls.request = cls.playwright.request.new_context(
             base_url=cls.base_url,
-            ignore_https_errors=True
+            ignore_https_errors=True  # API uses expired SSL certificate
         )
 
     @classmethod
@@ -19,34 +18,50 @@ class TestMunicipalitiesByName(unittest.TestCase):
         cls.request.dispose()
         cls.playwright.stop()
 
-    # -------- POSITIVE TESTS --------
+    # ---------- POSITIVE TESTS ----------
 
-    def test_positive_municipality_name(self):
-        for data in POSITIVE_TEST_DATA:
-            with self.subTest(city=data["city"]):
-                response = self.request.get(
-                    f"/api/v1/municipalities/name/{data['city']}"
-                )
+    def test_get_municipality_by_name_lodz_should_return_data(self):
+        response = self.request.get(
+            "/api/v1/municipalities/name/Lodz"
+        )
 
-                self.assertEqual(response.status, 200)
+        self.assertEqual(response.status, 200)
 
-                body = response.json()
+        body = response.json()
+        self.assertTrue(body["success"])
+        self.assertGreater(len(body["data"]), 0)
 
-                self.assertTrue(body["success"])
-                self.assertTrue(len(body["data"]) > 0)
+    def test_get_municipality_by_name_warszawa_should_return_data(self):
+        response = self.request.get(
+            "/api/v1/municipalities/name/Warszawa"
+        )
 
-    # -------- NEGATIVE TESTS --------
+        self.assertEqual(response.status, 200)
 
-    def test_negative_municipality_name(self):
-        for data in NEGATIVE_TEST_DATA:
-            with self.subTest(city=data["city"]):
-                response = self.request.get(
-                    f"/api/v1/municipalities/name/{data['city']}"
-                )
+        body = response.json()
+        self.assertTrue(body["success"])
+        self.assertGreater(len(body["data"]), 0)
 
-                self.assertEqual(response.status, 200)
+    # ---------- NEGATIVE TESTS ----------
 
-                body = response.json()
+    def test_get_municipality_by_non_existing_name_should_return_404(self):
+        response = self.request.get(
+            "/api/v1/municipalities/name/ytrytr"
+        )
 
-                self.assertFalse(body["success"])
-                self.assertEqual(len(body["data"]), 0)
+        self.assertEqual(response.status, 404)
+
+        body = response.json()
+        self.assertFalse(body["success"])
+        self.assertEqual(len(body["data"]), 0)
+
+    def test_get_municipality_by_invalid_name_should_return_404(self):
+        response = self.request.get(
+            "/api/v1/municipalities/name/zzzzzz"
+        )
+
+        self.assertEqual(response.status, 404)
+
+        body = response.json()
+        self.assertFalse(body["success"])
+        self.assertEqual(len(body["data"]), 0)
