@@ -4,7 +4,6 @@
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![Playwright](https://img.shields.io/badge/Playwright-Testy%20API-green)
 
----
 ## Zakres projektu
 
 - Automatyzacja testów **REST API**
@@ -15,8 +14,6 @@
 - Generowanie **raportu HTML**
   Raport zostanie zapisany w katalogu reports/
 - Projekt gotowy do uruchomienia w **CI**
-
----
 
 ## Technologie
 
