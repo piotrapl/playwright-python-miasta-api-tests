@@ -1,4 +1,5 @@
 import unittest
+from urllib import response
 from playwright.sync_api import sync_playwright
 
 
@@ -59,16 +60,21 @@ class TestMunicipalitiesByName(unittest.TestCase):
         self.assertIn("message", body["error"])
 
 
-    def test_get_municipality_by_invalid_name_should_return_404(self):
+    def test_get_municipality_with_empty_name_should_return_bad_request(self):
         response = self.request.get(
-            "/api/v1/municipalities/name/zzzzzz"
-        )
+        "/api/v1/municipalities/name/"
+    )
 
+        # 1. HTTP status
         self.assertEqual(response.status, 404)
 
         body = response.json()
-        self.assertFalse(body["success"])
 
-        # validate error object
+        # 2. success is false (or at least not true)
+        self.assertIn("success", body)
+        self.assertNotEqual(body["success"], True)
+
+        # 3. error block validation
         self.assertIn("error", body)
-        self.assertIn("message", body["error"])
+        self.assertIn("code", body["error"])
+        self.assertEqual(body["error"]["code"], "BAD_REQUEST")

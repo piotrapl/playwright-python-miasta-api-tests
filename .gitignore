@@ -1,25 +1,38 @@
-# Python bytecode
+# =========================
+# Python
+# =========================
 __pycache__/
 *.py[cod]
 *.pyo
 
+# =========================
 # Virtual environments
+# =========================
 venv/
 .venv/
 env/
 
-# Playwright
+# =========================
+# Playwright (Python)
+# =========================
 .playwright/
 node_modules/
 
-# Test reports
+# =========================
+# Test artifacts / reports
+# =========================
 reports/
+test-results/
 
-# OS / IDE files
-.DS_Store
-Thumbs.db
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# IDE / OS files
+# =========================
 .idea/
 .vscode/
-
-# Logs
-*.log
+.DS_Store
+Thumbs.db
