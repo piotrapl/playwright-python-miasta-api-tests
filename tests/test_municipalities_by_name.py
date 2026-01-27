@@ -39,7 +39,7 @@ def test_get_municipality_by_non_existing_name_should_return_404(api_request, ci
     def test_get_municipality_with_empty_name_should_return_404_and_bad_request(api_request):
     response = api_request.get("/api/v1/municipalities/name/")
 
-    # As requested
+    # status 404   
     assert response.status == 404
 
     body = response.json()
