@@ -34,7 +34,7 @@ Testowany jest publiczny endpoint API polskich jednostek samorządu terytorialne
 /api/v1/municipalities/name/{name}
 
 yaml
-Skopiuj kod
+
 - Scenariusze:
 - poprawna nazwa (pozytywne)
 - nieistniejąca nazwa (404)
@@ -73,32 +73,31 @@ Skopiuj kod
  git clone <adres-repozytorium>
  cd api-playwright-polish-gov
  ```
- #### Instalacja zależności:
+#### Instalacja zależności (Installing dependencies)
 
 bash
-Skopiuj kod
+
 pip install -r requirements.txt
 Instalacja Playwright:
 
 bash
-Skopiuj kod
+
 python -m playwright install
-Uruchamianie testó
+
 #### Uruchomienie testów (bez raportu):
 bash
-Skopiuj kod
+
 pytest
 #### Uruchomienie testów z raportem HTML:
 bash
-Skopiuj kod
+
 pytest --html=reports/report.html --self-contained-html
 Po zakończeniu testów raport HTML zostanie wygenerowany w katalogu:
 
-Skopiuj kod
 reports/
 ### Struktura projektu
 text
-Skopiuj kod
+
 api-playwright-polish-gov/
 │
 ├── tests/
@@ -125,7 +124,7 @@ Testy wydajnościowe API
 
 Obsługa timeoutów i retry
 
-### Dlaczego Oytesta nie unittest ? (Why Pytest, not unittest ?)
+### Dlaczego Pytest a nie unittest ? (Why Pytest, not unittest ?)
 
 - Mniej boilerplate’u – brak klas testowych i `self`, testy to zwykłe funkcje
 - Czytelniejsze asercje – `assert` z automatycznym, bogatym opisem błędów
