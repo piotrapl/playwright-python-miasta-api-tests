@@ -123,3 +123,11 @@ Raportowanie Allure
 Testy wydajnościowe API
 
 Obsługa timeoutów i retry
+
+### Dlaczego Pytest zamiast unittest?
+
+- Mniej boilerplate’u – brak klas testowych i `self`, testy to zwykłe funkcje
+- Czytelniejsze asercje – `assert` z automatycznym, bogatym opisem błędów
+- Parametryzacja testów wbudowana we framework (`@pytest.mark.parametrize`)
+- Potężny system fixture do współdzielenia danych i setupu testów
+- Bogaty ekosystem pluginów (raporty, parallel run, coverage)
