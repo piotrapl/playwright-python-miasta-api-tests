@@ -1,17 +1,9 @@
-POSITIVE_TEST_DATA = [
-    {
-        "city": "Lodz"
-    },
-    {
-        "city": "Warszawa"
-    }
+POSITIVE_CITIES = [
+    "Lodz",
+    "Warszawa",
 ]
 
-NEGATIVE_TEST_DATA = [
-    {
-        "city": "ytrytr"
-    },
-    {
-        "city": "zzzzzz"
-    }
+NEGATIVE_CITIES = [
+    "ytrytr",
+    "zzzzzz",
 ]
