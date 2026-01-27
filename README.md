@@ -103,7 +103,8 @@ api-playwright-polish-gov/
 ├── pytest.ini
 ├── requirements.txt
 └── README.md
-### Możliwe rozszerzenia
+
+### Możliwe rozszerzenia (possible extentions)
 Walidacja schematu odpowiedzi (JSON Schema)
 
 Parametryzacja środowisk (dev / test / prod)
