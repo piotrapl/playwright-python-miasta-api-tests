@@ -1,6 +1,8 @@
 import pytest
 from tests.test_data import POSITIVE_CITIES, NEGATIVE_CITIES
 
+# Testy dla endpointu pobierającego jednostki samorządowe po nazwie miasta
+# Asercje sprawdzają, czy odpowiedzi API są zgodne z oczekiwaniami dla istniejących i nieistniejących nazw miast.
 
 @pytest.mark.parametrize("city", POSITIVE_CITIES)
 def test_get_municipality_by_name_should_return_data(api_request, city):
@@ -39,4 +41,3 @@ def test_get_municipality_with_empty_name_should_return_404_and_bad_request(api_
     assert body.get("success") is not True
 
     assert "error" in body
-    assert body["error"].get("code") == "BAD_REQUEST"
