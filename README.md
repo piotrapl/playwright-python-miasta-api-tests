@@ -124,7 +124,7 @@ Testy wydajnościowe API
 
 Obsługa timeoutów i retry
 
-### Dlaczego Pytest zamiast unittest?
+### Dlaczego Oytesta nie unittest ? (Why Pytest, not unittest ?)
 
 - Mniej boilerplate’u – brak klas testowych i `self`, testy to zwykłe funkcje
 - Czytelniejsze asercje – `assert` z automatycznym, bogatym opisem błędów
