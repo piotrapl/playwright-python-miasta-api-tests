@@ -29,7 +29,7 @@ def test_get_municipality_by_non_existing_name_should_return_404(api_request, ci
     body = response.json()
     assert body.get("success") is not True
 
-    # API error contract is nested: error.code / error.message
+    # kontrakt błędu API jest zagnieżdżony: error.code / error.message
     assert "error" in body
     assert body["error"].get("code") in {"NOT_FOUND", "BAD_REQUEST"}
     assert "message" in body["error"]
