@@ -72,24 +72,18 @@ yaml
  ```bash
  git clone <adres-repozytorium>
  cd api-playwright-polish-gov
- ```
+ ```bash
+
 #### Instalacja zależności (Installing dependencies)
-
-bash
-
 pip install -r requirements.txt
 Instalacja Playwright:
-
-bash
 
 python -m playwright install
 
 #### Uruchomienie testów (bez raportu):
-bash
 
 pytest
 #### Uruchomienie testów z raportem HTML:
-bash
 
 pytest --html=reports/report.html --self-contained-html
 Po zakończeniu testów raport HTML zostanie wygenerowany w katalogu:
@@ -109,7 +103,7 @@ api-playwright-polish-gov/
 ├── pytest.ini
 ├── requirements.txt
 └── README.md
-### Możliwe rozszerzenia (roadmapa)
+### Możliwe rozszerzenia
 Walidacja schematu odpowiedzi (JSON Schema)
 
 Parametryzacja środowisk (dev / test / prod)
