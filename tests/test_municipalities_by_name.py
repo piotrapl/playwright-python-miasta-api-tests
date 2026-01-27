@@ -36,7 +36,7 @@ def test_get_municipality_by_non_existing_name_should_return_404(api_request, ci
 
 # Test negatywny dla tego samego endpointu
 # Sprawdza, czy odpowiedź API jest poprawna dla PUSTEJ nazwy miasta
-    def test_get_municipality_with_empty_name_should_return_404_and_bad_request(api_request):
+def test_get_municipality_with_empty_name_should_return_404_and_bad_request(api_request):
     response = api_request.get("/api/v1/municipalities/name/")
 
     # status 404   
