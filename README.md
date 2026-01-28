@@ -67,24 +67,26 @@ Testowany jest publiczny endpoint API polskich jednostek samorządu terytorialne
  cd playwright-python-miasta-api-tests
  ```
 
-#### Instalacja zależności (Installing dependencies)
+#### Przygotowanie projektu
+
+```bash
 pip install -r requirements.txt
-Instalacja Playwright:
 
 python -m playwright install
-
+```
 #### Uruchomienie testów (bez raportu):
-
+```bash
 pytest
+```
 #### Uruchomienie testów z raportem HTML:
-
+```bash
 pytest --html=reports/report.html --self-contained-html
+```
 Po zakończeniu testów raport HTML zostanie wygenerowany w katalogu:
 
 reports/
 ### Struktura projektu
-text
-
+```bash
 api-playwright-polish-gov/
 │
 ├── tests/
@@ -96,7 +98,7 @@ api-playwright-polish-gov/
 ├── pytest.ini
 ├── requirements.txt
 └── README.md
-
+```
 ### Możliwe rozszerzenia (possible extentions)
 Walidacja schematu odpowiedzi (JSON Schema)
 
