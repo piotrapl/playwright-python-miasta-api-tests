@@ -1,9 +1,11 @@
 POSITIVE_CITIES = [
     "Lodz",
-    "Warszawa",
+    "Swietochlowice",
+    "Kraków",
 ]
 
 NEGATIVE_CITIES = [
-    "ytrytr",
-    "zzzzzz",
+    "hgjgj",
+    "Cracow",
+    "",
 ]
