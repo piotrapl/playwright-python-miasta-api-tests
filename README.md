@@ -7,8 +7,7 @@ Designed as a portfolio-quality example for QA / Automation Engineer roles.
 
 ---
 
-Projekt demonstracyjny automatyzacji testów **REST API** przygotowany z myślą o  
-**stanowiskach QA Engineer / Automation Engineer**.
+Projekt demonstracyjny automatyzacji testów **REST API**
 
 Repozytorium pokazuje praktyczne użycie:
 - **Playwright (Python)** do testów API
