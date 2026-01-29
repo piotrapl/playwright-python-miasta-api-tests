@@ -46,3 +46,5 @@ def test_get_municipality_with_empty_name_should_return_404_and_bad_request(api_
     assert body.get("success") is not True
 
     assert "error" in body
+    assert body["error"].get("code") == "BAD_REQUEST"
+    assert "message" in body["error"]
