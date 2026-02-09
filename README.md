@@ -31,7 +31,7 @@ Testowany jest publiczny endpoint API polskich jednostek samorządu terytorialne
 
 ## Scenariusze:
 - poprawna nazwa (pozytywne)
-- nieistniejąca nazwa (404)
+- nieistniejąca nazwa (404, BED_REQUEST)
 - niepoprawna nazwa (404)
 - pusty parametr ścieżki (BAD_REQUEST)
 - Walidacja:

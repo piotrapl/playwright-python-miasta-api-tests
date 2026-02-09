@@ -22,7 +22,7 @@ def test_get_municipality_by_name_should_return_data(api_request, city):
 # Spawdza, czy odpowiedź API jest poprawna dla NIEISTNIEJĄCEJ nazwy miasta
 
 @pytest.mark.parametrize("city", NEGATIVE_CITIES)
-def test_get_municipality_by_non_existing_name_should_return_404(api_request, city):
+def test_get_municipality_by_non_existing_name_should_return_404_not_found(api_request, city):
     response = api_request.get(f"/api/v1/municipalities/name/{city}")
 
     assert response.status == 404
@@ -42,7 +42,7 @@ def test_get_municipality_by_non_existing_name_should_return_404(api_request, ci
 # bez parametryzacji (@pytest.mark.parametrize...), 
 # bo to tylko jeden przypadek testowy (pusta nazwa)
 
-def test_get_municipality_with_empty_name_should_return_404_and_bad_request(api_request):
+def test_get_municipality_with_empty_name_should_return_400_bad_request(api_request):
     response = api_request.get("/api/v1/municipalities/name/")
 
     assert response.status == 400

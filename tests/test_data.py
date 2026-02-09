@@ -7,7 +7,3 @@ NEGATIVE_CITIES = [
     "Cracowcity",
     "Krackówek",
 ]
-
-EMPTY_NAME = [
-    "",
-]
