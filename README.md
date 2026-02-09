@@ -32,7 +32,7 @@ Testowany jest publiczny endpoint API polskich jednostek samorządu terytorialne
 ## Scenariusze:
 1. poprawna nazwa (pozytywne)
 2. nieistniejąca nazwa (negatywne: 404, NOT_FOUND)
-3. pusty parametr zamiast nazwy (jeden negatywny: 400, BAD_REQUEST)
+3. pusty parametr zamiast nazwy (scenariusz negatywny: 400, BAD_REQUEST)
 Walidacja:
 - kodów HTTP
 - pól biznesowych (`success`)
