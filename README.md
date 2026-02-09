@@ -1,10 +1,10 @@
 # Testy API serwisu z danymi o polskich jednostkach samorządu terytorialnego
   https://local-gov-units.polandapi.com
 
-**English (short abstract):**  
-A minimal API test automation project using **Playwright (Python)** and **pytest**.  
+**English abstract:**  
+_A minimal API test automation project using **Playwright (Python)** and **pytest**.  
 Demonstrates positive and negative REST API testing, data-driven tests, fixtures, and HTML reporting.  
-Designed as a portfolio-quality example for QA / Automation Engineer roles.
+Designed as a portfolio-quality example for QA / Automation Engineer roles._
 
 ---
 
