@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      # (Opcjonalnie) Krok diagnostyczny
+      - name: Diagnostics
+        run: |
+          python --version
+          pip --version
+          pip list
+          python -m playwright --version
+
+      # (Opcjonalnie) Cache przeglądarek Playwright — przyśpiesza kolejne runy
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('requirements.txt') }}
+
+      # Jeśli masz testy UI (browser) — zostaw.
+      # Jeśli masz TYLKO testy API w Playwright (request context) — możesz to usunąć.
+      - name: Install Playwright browsers (optional)
+        run: |
+          python -m playwright install --with-deps chromium
+
+      - name: Run tests (pytest)
+        run: |
+          mkdir -p reports
+          pytest -q \
+            --junitxml=reports/junit.xml \
+            --html=reports/report.html --self-contained-html
+
+      - name: Upload reports (always)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports-py${{ matrix.python-version }}
+          path: reports/
+          if-no-files-found: warn
