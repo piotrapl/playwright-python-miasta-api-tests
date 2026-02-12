@@ -3,7 +3,7 @@
 
 ![CI](https://github.com/piotrapl/playwright-python-miasta-api-tests/actions/workflows/ci.yml/badge.svg)
 
-**English abstract:**  
+*English abstract:*  
 _A minimal API test automation project using **Playwright (Python)** and **pytest**.  
 Demonstrates positive and negative REST API testing, data-driven tests, fixtures, and HTML reporting.  
 Designed as a portfolio-quality example for QA / Automation Engineer roles._
