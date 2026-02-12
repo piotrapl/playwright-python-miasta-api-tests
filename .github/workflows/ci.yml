@@ -1,4 +1,4 @@
-name: CI
+name: CI - Playwright API Tests
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          
+
       # (Opcjonalnie) Krok diagnostyczny
       - name: Diagnostics
         run: |
