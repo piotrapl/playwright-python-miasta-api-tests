@@ -4,8 +4,7 @@ from tests.test_data import MIASTA_POSITIVE, MIASTA_NEGATIVE
 # Testy dla endpointu pobierającego jednostki samorządowe po nazwie miasta
 # Asercje sprawdzają, czy odpowiedzi API są zgodne z oczekiwaniami dla istniejących i nieistniejących nazw miast.
 # @pytest.mark.parametrize("city", POSITIVE_CITIES)
-# - odpowiednik pętli for dla testów jednostkowych 
-#   uruchamia test dla każdej wartości w POSITIVE_CITIES
+#   test uruchomiony zostaje dla każdej wartości w POSITIVE_CITIES (analogicznie dla NEGATIVE_CITIES)
 # api_request - fikcyjny klient API, przekazywany do testów jako argument (fixture)
 # api_request in english - API request context, a fixture that provides a shared context for making API requests in tests.
 # fake client - because it's not a real API, but a simulation of its behavior, allowing us to test the application logic without needing to run the entire API environment.
